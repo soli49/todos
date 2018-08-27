@@ -3,11 +3,8 @@
 pipeline {
 
     agent {
-        docker {
-            image 'node:8'
-        }
+        docker 'node:8'
     }
-
     stages {
         stage('Build') {
             steps {
