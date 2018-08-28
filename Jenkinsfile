@@ -3,15 +3,14 @@
 pipeline {
 
     agent {
-        docker {
-        image 'node:8'
-        }
+        node {
+        label 'slave'
+    }
     }
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'meteor npm install'
         }
        
         }
