@@ -3,14 +3,14 @@
 pipeline {
 
     agent {
-        node {
+        dockerfile true
         label 'Slave'
-    }
     }
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
+                sh "meteor --allow-superuser"
         }
        
         }
