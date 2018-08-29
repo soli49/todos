@@ -7,7 +7,7 @@ maintainer fixed.solutions
 RUN curl https://install.meteor.com/ | sh
 
 #copy the project into docker image
-
+USER root
 copy ./todos todosdocker
 #run git clone https://github.com/AlaaZidan/todos
 
