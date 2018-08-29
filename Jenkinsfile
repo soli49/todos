@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-pipeline {
+
 
     
         node {
@@ -11,5 +11,4 @@ pipeline {
     
             }
     }
-   
-}
+
