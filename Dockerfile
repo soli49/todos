@@ -8,7 +8,7 @@ RUN curl https://install.meteor.com/ | sh
 
 #copy the project into docker image
 
-copy /var/lib/jenkins/workspace/todos/ todosdocker
+copy ./todos todosdocker
 #run git clone https://github.com/AlaaZidan/todos
 
 workdir todosdocker 
