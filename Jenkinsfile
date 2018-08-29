@@ -2,22 +2,14 @@
 
 pipeline {
 
-    agent {
+    
         node {
         label 'Slave'
-            def customImage = docker.build("test-image","./todos/")
+            def customImage = docker.build("test-image","./")
              customImage.inside {
         sh 'meteor --allow-superuser'
-    }
+    
             }
     }
-    stages {
-        stage('Build') {
-      
-            steps {
-                echo 'Building...'
-        }
-       
-        }
-    }
+   
 }
