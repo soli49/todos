@@ -1,14 +1,19 @@
 #!/usr/bin/env groovy
-
-
-
-    
-        node {
-        label 'Slave'
-            def customImage = docker.build("test-image","./")
-             customImage.inside {
-        sh 'meteor --allow-superuser'
-    
-            }
+   
+pipeline {
+    agent {
+    label 'Slave'
     }
+    stages {
+        stage('Build') {
+            agent {dockerfile true}
+            steps {
+                sh 'meteor --allow-superuser'
+            echo 'Buliding...'
+            }
+        }
+        
+    }
+
+}
 
