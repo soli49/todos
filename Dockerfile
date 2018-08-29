@@ -8,8 +8,8 @@ RUN curl https://install.meteor.com/ | sh
 
 #copy the project into docker image
 
-copy ./todos todosdocker
-#run git clone https://github.com/AlaaZidan/todos
+#copy ./todos todosdocker
+run git clone https://github.com/AlaaZidan/todos
 
 workdir todosdocker 
 
