@@ -2,7 +2,9 @@
    
 pipeline {
     agent {
+       node {
     label 'Slave'
+       }
     }
     stages {
         stage('Build') {
