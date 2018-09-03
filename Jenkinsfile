@@ -9,8 +9,10 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-               dockerfile true
-            }
+            dockerfile {
+            filename 'Dockerfile.ci'
+        }
+
             steps {
                 sh 'meteor --allow-superuser'
             echo 'Buliding...'
