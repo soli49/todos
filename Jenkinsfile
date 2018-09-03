@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             agent {
             dockerfile {
-            filename 'Dockerfile.ci'
+            filename 'Dockerfile'
         }
             }
 
