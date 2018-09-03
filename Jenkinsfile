@@ -12,6 +12,7 @@ pipeline {
             dockerfile {
             filename 'Dockerfile.ci'
         }
+            }
 
             steps {
                 sh 'meteor --allow-superuser'
