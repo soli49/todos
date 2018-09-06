@@ -15,6 +15,7 @@ pipeline {
             echo 'Buliding...'
             
         }
+        }
        stage('Docker Build') {
       agent any
       steps {
