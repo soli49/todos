@@ -11,7 +11,7 @@ pipeline {
           
             steps {
                 
-        sh 'docker build -f "Dockerfile-terraform" -t todos/terraform:latest .'
+        sh 'docker build -f "Dockerfile" -t todos/terraform:latest .'
             echo 'Buliding...'
             
         }
