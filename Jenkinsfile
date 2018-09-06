@@ -11,17 +11,12 @@ pipeline {
           
             steps {
                 
-        sh 'docker build -f "Dockerfile" -t todos/terraform:latest .'
+        sh 'docker build -f "Dockerfile" -t todostest .'
             echo 'Buliding...'
             
         }
         }
-       stage('Docker Build') {
-      agent any
-      steps {
-        sh 'docker build -t jenkinstodos .'
-      }
-    }
+       
         
     }
 
