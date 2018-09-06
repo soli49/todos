@@ -11,7 +11,7 @@ pipeline {
           
             steps {
                 
-        sh 'docker build -f "Dockerfile" -t todostest .'
+        sh 'docker build -f "Dockerfile" -t todostestmaster .'
             echo 'Buliding...'
             
         }
