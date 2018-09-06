@@ -8,16 +8,12 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
-            dockerfile {
-            filename 'Dockerfile'
-        }
-            }
-
+          
             steps {
-                sh 'meteor --allow-superuser'
+                
+        sh 'docker build -f "Dockerfile-terraform" -t todos/terraform:latest .'
             echo 'Buliding...'
-            }
+            
         }
        stage('Docker Build') {
       agent any
