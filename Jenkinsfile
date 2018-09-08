@@ -17,7 +17,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://registry.hub.docker.com" ]) { {
            sh 'docker push todosimage'
         }
         }
