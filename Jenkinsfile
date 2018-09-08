@@ -4,7 +4,7 @@
 pipeline {
    agent {label master}
    stages {
-          stage ('Build'){
+          stage('Build'){
             
              steps {
              sh 'docker build -f "Dockerfile" -t todosimage .'
@@ -12,7 +12,7 @@ pipeline {
       
           }
           
-          stage ('Deploy image'){
+          stage('Deploy image'){
              steps {
           sh 'docker run -itd --name todosDeploy -p 4000:3000 todosimage bash'
              sh 'docker exec -itd todosDeploy sh -c "meteor --allow-superuser" bash'
