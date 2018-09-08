@@ -6,9 +6,9 @@ pipeline {
    stages {
           stage ('Build'){
             
-        checkout scm
-    def dockerfile = 'Dockerfile'
-    def customImage = docker.build("todosimage", "-f ${dockerfile} .") 
+             steps {
+             sh 'docker build -f "Dockerfile" -t todosimage .'
+             }
       
           }
           
