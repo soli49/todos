@@ -13,9 +13,6 @@ pipeline {
           }
       
       stage('Publish') {
-      when {
-        branch 'master'
-      }
       steps {
         withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://registry.hub.docker.com" ]) { 
            sh 'docker push todosimage'
