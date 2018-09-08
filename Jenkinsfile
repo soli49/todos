@@ -10,6 +10,7 @@
           
           stage ('Deploy image'){
           sh 'docker run -itd --name todosDeploy -p 4000:3000 todosimage bash'
+             sh 'docker exec -itd todosDeploy sh -c "meteor --allow-superuser" bash'
           }
        }
 
