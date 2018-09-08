@@ -21,4 +21,4 @@ expose 2222
 
 #cmd ["meteor","--allow-superuser"]
 
-run meteor --allow-superuser
+#run meteor --allow-superuser
