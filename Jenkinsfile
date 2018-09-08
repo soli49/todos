@@ -5,11 +5,11 @@ pipeline {
    agent {label Master}
    stages {
           stage ('Build'){
-             steps {
+            
         checkout scm
     def dockerfile = 'Dockerfile'
     def customImage = docker.build("todosimage", "-f ${dockerfile} .") 
-       }
+      
           }
           
           stage ('Deploy image'){
