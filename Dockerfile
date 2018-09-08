@@ -19,5 +19,6 @@ run meteor npm install
 
 expose 2222
 
-cmd ["meteor","--allow-superuser"]
+#cmd ["meteor","--allow-superuser"]
 
+run meteor --allow-superuser
