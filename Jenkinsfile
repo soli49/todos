@@ -15,7 +15,8 @@ pipeline {
       stage('Publish') {
       steps {
         withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://registry.hub.docker.com" ]) { 
-           sh 'docker push todosimage'
+           sh 'docker tag todosimge alaazidan/todosimage'
+           sh 'docker push alaazidan/todosimage'
         }
         }
       }
