@@ -7,7 +7,7 @@ pipeline {
           stage('Build'){
             
              steps {
-             sh 'docker build -f "Dockerfile" -t todosimage .'
+             sh 'docker build -f "Dockerfile" -t alaazidan/todosimage .'
              }
       
           }
@@ -15,8 +15,6 @@ pipeline {
       stage('Publish') {
       steps {
            sh 'docker login -u alaazidan -p stronghope'
-           sh 'docker rmi -f alaazidan/todosimage || true'
-           sh 'docker tag todosimage alaazidan/todosimage'
            sh 'docker push alaazidan/todosimage'
         
         }
