@@ -23,7 +23,7 @@ pipeline {
           stage('Deploy image'){
              steps {
                 sh 'docker rm -f todosDeploy || true'
-          sh 'docker run -itd -p 4545:3000 --name todosDeploy todosimage bash'
+          sh 'docker run -itd -p 4545:3000 --name todosDeploy todosimage'
            
           }
           }
