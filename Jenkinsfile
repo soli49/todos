@@ -24,7 +24,6 @@ pipeline {
              steps {
                // sh 'docker rm -f todosDeploy || true'
                 sh 'docker run -itd --name ${BUILD_TAG} todosimage bash -c "meteor --allow-superuser"'
-           
           }
           }
    }
