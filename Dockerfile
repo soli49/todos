@@ -1,6 +1,6 @@
 from node:8
 
-maintainer fixed.solutions
+maintainer stc
 
 #install meteor 
 
