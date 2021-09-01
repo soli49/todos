@@ -13,8 +13,8 @@ copy . todosdocker
 workdir todosdocker 
 
 #npm install 
-run meteor npm install
-
+#run meteor npm install
+run npm install --production
 #port expost 
 
 expose 2222
