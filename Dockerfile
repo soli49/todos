@@ -7,7 +7,7 @@ maintainer stc
 RUN curl https://install.meteor.com/ | sh
 
 #copy the project into docker image
-copy . todosdocker
+copy ./todos todosdocker
 #run git clone https://github.com/AlaaZidan/todos
 
 workdir todosdocker 
@@ -17,7 +17,7 @@ workdir todosdocker
 run npm install --production
 #port expost 
 
-expose 2222
+expose 3000
 
 cmd ["meteor","--allow-superuser"]
 
