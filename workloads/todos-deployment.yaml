@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todos-deployment
+spec:
+  selector:
+    matchLabels:
+      app: todos-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: todos-app
+    spec:
+      containers:
+      - name: todos-test
+        image: alaazidan/todos:committed
+        ports:
+        - containerPort: 3000
+          name: todos-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: todos-app
+  name: todos-svc
+  namespace: default
+spec:
+  type: NodePort 
+  ports:
+    - port: 3000
+  selector:
+    app: todos-app
