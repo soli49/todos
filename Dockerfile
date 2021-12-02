@@ -3,14 +3,14 @@ from node:8
 maintainer stc
 
 #install meteor 
-
+RUN git clone https://github.com/AlaaZidan/todos
 RUN curl https://install.meteor.com/ | sh
 
 #copy the project into docker image
-copy ./todos todosdocker
+#copy ./todos todosdocker
 #run git clone https://github.com/AlaaZidan/todos
-
-workdir todosdocker 
+workdir todos
+#workdir todosdocker 
 
 #npm install 
 #run meteor npm install
