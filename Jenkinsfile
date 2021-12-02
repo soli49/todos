@@ -1,36 +1,31 @@
-#!/usr/bin/env groovy
-   
-
 pipeline {
-   agent any
-   stages {
-          stage('Build'){
-            
-             steps {
-             sh 'docker build -f "Dockerfile" -t alaazidan/todosimage .'
-             }
-      
-          }
-      
-      stage('Publish') {
-      steps {
-           sh 'docker login -u alaazidan -p stronghope'
-           sh 'docker push alaazidan/todosimage'
-        
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    app = docker.build("alaazidan/todos_app ")
+                    app.inside {
+                        sh 'echo $(curl localhost:3000)'
+                    }
+                }
+            }
         }
-      }
-          
-          stage('Deploy image'){
-             steps {
-               // sh 'docker rm -f todosDeploy || true'
-                sh 'docker run -itd --name ${BUILD_TAG} todosimage bash -c "meteor --allow-superuser"'
-          }
-          }
-   }
-   post {
-      always {
-         cleanWs()
-      }
-   }
-       }
-
+        stage('Push Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'my_docker_hub_login') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
+                }
+            }
+        }
+    }   
+}
