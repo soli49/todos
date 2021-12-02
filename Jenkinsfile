@@ -4,7 +4,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    app = docker.build("alaazidan/todos_app ")
+                    app = docker.build("alaazidan/todos_app")
                     app.inside {
                         sh 'echo $(curl localhost:3000)'
                     }
