@@ -2,9 +2,6 @@ pipeline {
     agent any
     stages {
         stage('Build Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 script {
                     app = docker.build("alaazidan/todos_app ")
@@ -15,9 +12,6 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'my_docker_hub_login') {
